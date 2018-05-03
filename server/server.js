@@ -19,7 +19,9 @@ app.listen(config.port, ()=>{
 });
 
 mongoose.connect(config.database, (err)=>{
-    if (err) throw err;
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Connected to the database");
+    }
 });
-
-mongoose.connection;

@@ -1,28 +1,25 @@
-//Server setup
-
 const express = require('express');
 const morgan = require('morgan');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const app = express();
 
-const HTTP_PORT = process.env.PORT || 3000;
-const SERVER = app.listen(HTTP_PORT, ()=>{
+app.use(morgan('combined'));
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+
+app.listen(config.port, ()=>{
     console.log("Listening on port 3000...");
 });
 
-//Mongoose connection
-const URL = "mongodb://root:root@ds263989.mlab.com:63989/cryptos"
-mongoose.connect("mongodb://root:root@ds263989.mlab.com:63989/cryptos");
-const CONN = mongoose.connection;
-CONN.on('Connected', ()=>{
-    console.log("Mongoose default connection to ", URL);
-});
-CONN.on('Error', ()=>{
-    console.log("Error connecting to database ", err);
+mongoose.connect(config.database, (err)=>{
+    if (err) throw err;
 });
 
-
+mongoose.connection;

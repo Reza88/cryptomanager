@@ -14,9 +14,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
-app.listen(config.port, ()=>{
-    console.log("Listening on port 3000...");
-});
 
 mongoose.connect(config.database, (err)=>{
     if (err) {
@@ -24,4 +21,8 @@ mongoose.connect(config.database, (err)=>{
     } else {
         console.log("Connected to the database");
     }
+});
+
+app.listen(config.port, ()=>{
+    console.log("Listening on port 3000...");
 });

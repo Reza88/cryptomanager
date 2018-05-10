@@ -17,4 +17,8 @@ Matt - MongoScheme [User] Discuss
 
 Ali - Wireframes 
 
+Sprint 2 User Scheme + Nav bar
+---------------------------------------------------------------
+Matt - setup user schema and nav bar
+
 

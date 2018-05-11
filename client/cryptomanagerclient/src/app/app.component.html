@@ -6,7 +6,7 @@
       <a class="nav-link" href="#"><span class="fas fa-search" style="padding: 7px"></span>Search</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><span class="fas fa-pencil-alt" style="padding: 7px"></span>Sign up</a>
+      <a routerLink="/register" class="nav-link"><span class="fas fa-pencil-alt" style="padding: 7px"></span>Sign up</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#"><span class="far fa-star" style="padding: 7px"></span>Log in</a>
@@ -15,3 +15,10 @@
       <a class="nav-link" href="#"><span class="far fa-address-card" style="padding: 7px"></span>Account</a>
     </li>
   </ul>
+
+  <router-outlet></router-outlet>
+  <footer id="main-footer" class="bg-main text-black mt-5 p-5">
+  <div class="container">
+        <p class="lead text-center">Copyright &copy; 2018 CryptoTracker</p>
+      </div>
+      </footer>

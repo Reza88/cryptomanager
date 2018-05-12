@@ -23,6 +23,9 @@ mongoose.connect(config.database, (err)=>{
     }
 });
 
+const userRoutes = require('./routes/account');
+app.use('/api/accounts',userRoutes); 
+
 app.listen(config.port, ()=>{
     console.log("Listening on port 3000...");
 });

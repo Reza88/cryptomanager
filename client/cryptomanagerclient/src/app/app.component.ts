@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  //Just a getter inside an ES6 Class 
+  get token(){
+    return localStorage.getItem('token'); 
+  }
+  
+
 }

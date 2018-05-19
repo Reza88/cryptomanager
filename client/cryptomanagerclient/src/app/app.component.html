@@ -3,22 +3,29 @@
         <a class="nav-link" href="#">LOGO FILLER</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><span class="fas fa-search" style="padding: 7px"></span>Search</a>
+      <a routerLink="/coin" class="nav-link" href="#"><span class="fa fa-search" style="padding: 7px"></span>Coins</a>
     </li>
     <li class="nav-item">
-      <a routerLink="/register" class="nav-link"><span class="fas fa-pencil-alt" style="padding: 7px"></span>Sign up</a>
+      <a *ngIf="!token" routerLink="/register" class="nav-link"><span class="fas fa-pencil-alt" style="padding: 7px"></span>Sign up</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><span class="far fa-star" style="padding: 7px"></span>Log in</a>
+      <a *ngIf="!token" routerLink="/login" class="nav-link" href="#"><span class="fa fa-star" style="padding: 7px"></span>Log in</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><span class="far fa-address-card" style="padding: 7px"></span>Account</a>
+      <a *ngIf="token" class="nav-link" href="#"><span class="fa fa-cog" style="padding: 7px"></span>Settings</a>
     </li>
-  </ul>
+    <li class="nav-item">
+      <a *ngIf="token" class="nav-link" href="#"><span class="fa fa-address-card" style="padding: 7px"></span>Account</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="token" class="nav-link" href="#"><span class="fa fa-sign-out" style="padding: 7px"></span>Logout</a>
+    </li>
+</ul>
 
   <router-outlet></router-outlet>
-  <footer id="main-footer" class="bg-main text-black mt-5 p-5">
-  <div class="container">
+
+    <footer id="main-footer" class="bg-main text-black mt-5 p-5">
+      <div class="container">
         <p class="lead text-center">Copyright &copy; 2018 CryptoTracker</p>
-      </div>
-      </footer>
+    </div>
+  </footer>

@@ -30,7 +30,6 @@ export class RegistrationComponent {
   }
 
    async register(){
-    console.log('hit here register'); 
     const data =  await this.rest.post(
       API_ACCOUNTS_SIGNUP,{
         name:this.registrationForm.value.name,

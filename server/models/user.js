@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 
-var Schema = mongoose.Schema;
+
 var UserSchema = new Schema({
     username: String,
     password: String,
@@ -30,14 +31,15 @@ UserSchema.pre('save', function(next){
         if(err){
             return next(err);
         }
-        user.passward = hash;
+        user.password = hash;
         next();
-    })
-})
+    });
+});
 
 UserSchema.methods.comparePassword = function(password) {
-    return brypt.compareSync(password, this.passward);
-}
+    console.log('inside here'); 
+    return bcrypt.compareSync(password, this.password);
+};
 
 
 UserSchema.methods.gravatar = function(size){

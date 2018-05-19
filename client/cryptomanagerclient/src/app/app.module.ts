@@ -1,3 +1,5 @@
+import { AuthGuardService } from './auth-guard.service';
+import { CryptoApiService } from './crypto-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,6 +17,9 @@ import {RestApiService} from './rest-api.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CryptoTableComponent } from './crypto-table/crypto-table.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -22,7 +27,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     MessageComponent,
     RegistrationComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    CryptoTableComponent,
+    ProfileComponent
   ],
   imports: [
     HttpClientModule,
@@ -32,7 +40,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule.forRoot()
   ],
-  providers: [DataService,RestApiService],
+  providers: [DataService,RestApiService,CryptoApiService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
